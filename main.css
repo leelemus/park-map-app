@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    top: 0px;
+    width: 100vw;
+    height: 10vh;
+    background-color: #222;
+    z-index: 100;
+}
+
+header h1 {
+    color: white;
+}
+
+h1, h2, h3, legend, p {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 5vh;
+}
+
+.searchResult, .playgroundList, .directionsList, .startForm {
+    border: solid 1px blue;
+    width: 100vw;
+}
+
+.mapContainer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 40vh;
+    border: 1px solid grey;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 45vh;
+    border: solid 1px lightblue;
+}
+
+.createRouteForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+input {
+    text-align: center;
+    border: solid 1px black;
+}
+
+input [type=radio] {
+    display: flex;
+    flex-direction: row;
+}
+
+.bikeTypeOption {
+    display: flex;
+    flex-direction: row;
+}
+
+.startForm, .startOver {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.uploadFormSection, .uploadForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.uploadForm input, .uploadForm label {
+    margin: 2vw auto;
+}
+
+.startOver form {
+    margin: 1vw auto;
+}
+
+.directionsList ol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

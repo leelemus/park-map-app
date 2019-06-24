@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="API Hack Capstone Project - Name TBD">
+        <title>API Route Results View</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="./main.js"></script>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
+  <link rel="stylesheet" href="./main.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Playground Map App</h1>
+    </header>
+    <main>
+        <section class="mapContainer">
+            <p>Map</p>
+        </section>
+        <section class="contentContainer">
+            <section class="searchResult">
+                <h2>NICE JOB!</h2>
+                <p>Time: <span>00:05:00</span></p>
+                <p>Distance: <span>75 miles</span></p>
+                <p>Avg. Speed: <span>15 mph</span></p>
+                <p><a href="./upload-confirmation.html" target="_blank">Click here to see Upload Confirmation View</a>.</p>
+            </section>
+            <section class="uploadFormSection">
+                <form class="uploadForm">
+                    <legend>Upload your activity to Strava.</legend>
+                    <label for="activityName">Activity Name:</label>
+                    <input type="text" name="activityName" placeholder="name your activity"/>
+                    <label for="activityDescription">Activity Description:</label>
+                    <input type="text" name="activityDescription" placeholder="describe your activity"/>
+                    <input type="submit" value="Upload to Strava" />
+                </form>
+            </section>
+            <section class="startOver">
+                <form>
+                    <input type="submit" value="Start New Recording" />
+                </form>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>
+            Lee Lemus &copy; 2019
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="API Hack Capstone Project - Name TBD">
+        <title>API Search-Locate View</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="./main.js"></script>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
+  <link rel="stylesheet" href="./main.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Playground Map App</h1>
+    </header>
+    <main>
+        <section class="mapContainer">
+            <p>Map</p>
+        </section>
+        <section class="contentContainer">
+            <h2>Instructions</h2>
+            <p>Instruction text - <a href="./search-result.html" target="_blank">click here opens Search Results view in new window</a>.</p>
+            <form class="createRouteForm" >
+                <legend>Create a route</legend>
+                <label for="numberOfPlaygrounds">Playground #</label>
+                <input type="number" value="4" name="numberOfPlaygrounds"/>
+                <label for="numberOfDistance">Distance</label>
+                <input type="number" value="3" name="numberOfDistance" />
+                <label for="typeOfActivity">Type of Activity</label>
+                <div class="bikeTypeOption">
+                    <label><input type="radio" name="typeOfActivity" checked>Bike</label>
+                    <label><input type="radio" name="typeOfActivity" checked>Run</label>
+                </div>
+                <input type="submit" value="route"/>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>
+            Lee Lemus &copy; 2019
+        </p>
+    </footer>
+</body>
+</html>
