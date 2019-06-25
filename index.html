@@ -7,6 +7,7 @@
         <title>API Search-Locate View</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
   <script src="./main.js"></script>
+  <script src="./map.js"></script>
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
   <link rel="stylesheet" href="./main.css" type="text/css">
 </head>
@@ -16,7 +17,7 @@
     </header>
     <main>
         <section class="mapContainer">
-            <p>Map</p>
+            <div id="map"></div>
         </section>
         <section class="contentContainer">
             <h2>Instructions</h2>
@@ -41,5 +42,7 @@
             Lee Lemus &copy; 2019
         </p>
     </footer>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5kUVY_9QNtKnDzOlq3StWxkEZICDMLb8&callback=initMap"
+      async defer></script>
 </body>
 </html>

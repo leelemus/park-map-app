@@ -55,6 +55,11 @@ footer {
     border: 1px solid grey;
 }
 
+#map {
+    height: 100%;
+    width: 100%;
+  }
+
 .contentContainer {
     display: flex;
     flex-direction: column;
