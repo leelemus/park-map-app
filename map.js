@@ -17,6 +17,8 @@ function initMap() {
     zoom: 15
   });
   infoWindow = new google.maps.InfoWindow;
+  var bikeLayer = new google.maps.BicyclingLayer();
+  bikeLayer.setMap(map);
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
