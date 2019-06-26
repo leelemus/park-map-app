@@ -6,6 +6,7 @@
         <meta name="description" content="API Hack Capstone Project - Name TBD">
         <title>API Search-Locate View</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://kit.fontawesome.com/9bf45178cc.js"></script>
   <script src="./main.js"></script>
   <script src="./map.js"></script>
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
@@ -20,6 +21,13 @@
             <div id="map"></div>
         </section>
         <section class="contentContainer">
+
+            <div class="locateIconContainer">
+                <button class="iconButton">
+                    <i class="fas fa-street-view"></i>
+                </button>
+            </div>
+            
             <h2>Instructions</h2>
             <p>Instruction text - <a href="./search-result.html" target="_blank">click here opens Search Results view in new window</a>.</p>
             <form class="createRouteForm" >
@@ -46,7 +54,6 @@
 <!-- PROD KEY -->
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMIQdP2oIjdhcOKCCz28MGmQ9oIz4zog&callback=initMap"
       async defer></script>
-
 
 
 </body>

@@ -13,13 +13,14 @@ header {
     justify-content: space-around;
     top: 0px;
     width: 100vw;
-    height: 10vh;
+    height: 6vh;
     background-color: #222;
     z-index: 100;
 }
 
 header h1 {
     color: white;
+    margin: auto;
 }
 
 h1, h2, h3, legend, p {
@@ -38,7 +39,7 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 5vh;
+    height: 4vh;
 }
 
 .searchResult, .playgroundList, .directionsList, .startForm {
@@ -63,11 +64,31 @@ footer {
 .contentContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
     width: 100vw;
-    min-height: 45vh;
+    min-height: 49vh;
     border: solid 1px lightblue;
+}
+
+.locateIconContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-start;
+    position: relative;
+    height: 2em;
+    margin: 2vw;
+}
+
+.iconButton {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5em;
+  }
+
+.iconButton:hover {
+    background-color: red;
 }
 
 .createRouteForm {
@@ -117,4 +138,19 @@ input [type=radio] {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Small devices (portrait tablets and large phones, 501px and up) */
+@media only screen and (min-width: 501px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (desktops and large screens, 1000 and up) */
+@media only screen and (min-width: 1000px) {
+
 }
