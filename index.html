@@ -8,7 +8,6 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
   <script src="https://kit.fontawesome.com/9bf45178cc.js"></script>
   <script src="./main.js"></script>
-  <script src="./map.js"></script>
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
   <link rel="stylesheet" href="./main.css" type="text/css">
 </head>
@@ -20,17 +19,17 @@
         <section class="mapContainer">
             <div id="map"></div>
         </section>
-        <section class="contentContainer">
+        <section class="contentContainer js-contentContainer">
 
             <div class="locateIconContainer">
-                <button class="iconButton">
+                <button class="iconButton js-iconButton">
                     <i class="fas fa-street-view"></i>
                 </button>
             </div>
             
             <h2>Instructions</h2>
             <p>Instruction text - <a href="./search-result.html" target="_blank">click here opens Search Results view in new window</a>.</p>
-            <form class="createRouteForm" >
+            <form class="createRouteForm js-createRouteForm" >
                 <legend>Create a route</legend>
                 <label for="numberOfPlaygrounds">Playground #</label>
                 <input type="number" value="4" name="numberOfPlaygrounds"/>
@@ -41,7 +40,7 @@
                     <label><input type="radio" name="typeOfActivity" checked>Bike</label>
                     <label><input type="radio" name="typeOfActivity" checked>Run</label>
                 </div>
-                <input type="submit" value="route"/>
+                <input type="submit" value="route" id="createRouteButton"/>
             </form>
         </section>
     </main>
@@ -54,7 +53,6 @@
 <!-- PROD KEY -->
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMIQdP2oIjdhcOKCCz28MGmQ9oIz4zog&callback=initMap"
       async defer></script>
-
 
 </body>
 </html>
