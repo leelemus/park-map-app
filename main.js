@@ -116,7 +116,8 @@ function getResults() {
                     center: searchLocation,
                     zoom: 15
                 });
-
+                var bikeLayer = new google.maps.BicyclingLayer();
+                bikeLayer.setMap(map);
                 let request = {
                     location: searchLocation,
                     radius: '1000',
