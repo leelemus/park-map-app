@@ -26,7 +26,7 @@
                     <i class="fas fa-street-view"></i>
                 </button>
             </div>
-            
+            <div id="directions-panel"></div>
             <h2>Instructions</h2>
             <p>Instruction text - <a href="./search-result.html" target="_blank">click here opens Search Results view in new window</a>.</p>
             <form class="createRouteForm js-createRouteForm" >
@@ -50,10 +50,14 @@
         </p>
     </footer>
 
-<!-- PROD KEY -->
+<!-- PROD KEY 
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMIQdP2oIjdhcOKCCz28MGmQ9oIz4zog&callback=initMap&libraries=places,geometry"
       async defer></script>
+-->
 
+<!-- DEV KEY -->    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYH8cmjv-h_ykcstvnu2MaGPClWNS6fE&callback=initMap&libraries=places,geometry"
+async defer></script>
 
 </body>
 </html>
