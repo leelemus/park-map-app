@@ -56,7 +56,7 @@ function findLocation() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-  
+        let infoWindow;
         infoWindow.setPosition(pos);
         infoWindow.setContent('Location found.');
         infoWindow.open(map);
