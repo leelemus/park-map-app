@@ -2,6 +2,7 @@
 
 var map;
 var service;
+var infoWindow;
 
 function initMap() {
 
@@ -11,7 +12,7 @@ function initMap() {
         gestureHandling: 'greedy'
     });
 
-    let infoWindow = new google.maps.InfoWindow;
+    infoWindow = new google.maps.InfoWindow;
 
     let bikeLayer = new google.maps.BicyclingLayer();
     bikeLayer.setMap(map);
@@ -56,7 +57,6 @@ function findLocation() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        let infoWindow;
         infoWindow.setPosition(pos);
         infoWindow.setContent('Location found.');
         infoWindow.open(map);
