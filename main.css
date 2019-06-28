@@ -5,6 +5,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
@@ -27,6 +28,10 @@ h1, h2, h3, legend, p {
     text-align: center;
 }
 
+h2{ 
+    margin: 4vh auto 3vw;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -42,7 +47,24 @@ footer {
     height: 4vh;
 }
 
-.searchResult, .playgroundList, .directionsList, .startForm {
+.searchResultSummary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchResultTotals {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.searchResultTotals p {
+    margin: 0 2vw;
+}
+
+.playgroundList, .directionsList, .startForm {
     border: solid 1px blue;
     width: 100vw;
 }
@@ -63,20 +85,22 @@ footer {
 
 .contentContainer {
     display: flex;
+    position: relative;
     flex-direction: column;
-    justify-content: space-around;
     width: 100vw;
+    padding: 3vw;
     min-height: 49vh;
     border: solid 1px lightblue;
 }
 
+.contentContainer > p {
+    margin-top: 0;
+}
+
 .locateIconContainer {
-    display: flex;
-    justify-content: flex-end;
-    align-content: flex-start;
-    position: relative;
+    position: absolute;
+    right: 3vw;
     height: 2em;
-    margin: 2vw;
 }
 
 .iconButton {
@@ -95,22 +119,58 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
 }
 
-input {
+.numberInputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2vh auto 2vh;
+}
+
+.numberInput {
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.numberInput input {
     text-align: center;
     border: solid 1px black;
+    font-size: 1.2em;
+    padding: .3em;
+    margin-left: 1vw;
 }
 
-input [type=radio] {
+.numberInput label {
+    font-size: .7em;
+    text-align: right;
+}
+
+.typeInput {
+    display: flex;
+    flex-direction: row;
+    margin: 2vh auto;
+}
+
+.typeInput input [type=radio] {
     display: flex;
     flex-direction: row;
 }
 
-.bikeTypeOption {
-    display: flex;
-    flex-direction: row;
+.typeInput label {
+    margin: 0 1vw;
+}
+
+#createRouteButton {
+    width: 50vw;
+    height: 5vh;
+    background-color: blueviolet;
+    color:white;
+    margin: 3vw auto auto;
 }
 
 .startForm, .startOver {
@@ -127,14 +187,16 @@ input [type=radio] {
 }
 
 .uploadForm input, .uploadForm label {
-    margin: 2vw auto;
+    margin: 2vh auto;
 }
 
 .startOver form {
-    margin: 1vw auto;
+    margin: 1vh auto;
 }
 
-.directionsList ol {
+#directionsList  {
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -3,6 +3,7 @@
 var map;
 var service;
 var infoWindow;
+var pos;
 
 function initMap() {
 
@@ -22,12 +23,9 @@ function initMap() {
 
         navigator.geolocation.getCurrentPosition(
             function(position) {
-                let pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
+                let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
+                infoWindow.setContent('Current Location');
                 infoWindow.open(map);
                 map.setCenter(pos);
             }, 
@@ -49,26 +47,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
-function findLocation() {
-    // HTML5 geolocation.
-    navigator.geolocation.getCurrentPosition(function(position) {
 
-        let pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        infoWindow.open(map);
-        map.setCenter(pos);
-    });
-}
-
-function locateDevice() {
-    $('.js-contentContainer').on('click',`.js-iconButton`, event => {
-        findLocation();
-    });
-}
+// Callback takes results and generates directions with waypoints by initiating services and launching the calculateAndDisplayRoute function
 
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -79,21 +59,11 @@ function callback(results, status) {
   }
 }
 
-function createMarker(place) {
-    let marker = new google.maps.Marker({
-      map: map,
-      position: place.geometry.location
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
-    });
-}
-
 function calculateAndDisplayRoute(directionsService, directionsDisplay, results) {
     let waypts = [];
     let checkboxArray = results;
+    const routeType = $("form input[type='radio']:checked").val();
+    const maxResult = $('#js-numberOfPlaygrounds').val();
 
     navigator.geolocation.getCurrentPosition(function(position) {
         let pos = {
@@ -101,7 +71,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
             lng: position.coords.longitude
         };
 
-        for (let i = 0; i < checkboxArray.length; i++) {
+        for (let i = 0; i < maxResult; i++) {
             if (checkboxArray[i].place_id) {
               waypts.push({
                 location: {
@@ -110,29 +80,52 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                 stopover: true
               });
             }
-          }
+        }
 
         directionsService.route({
             origin: pos,
             destination: pos,
             waypoints: waypts,
             optimizeWaypoints: true,
-            travelMode: 'WALKING'
-          }, function(response, status) {
-            if (status === 'OK') {
-              directionsDisplay.setDirections(response);
-              var route = response.routes[0];
-              var summaryPanel = document.getElementById('directions-panel');
-              summaryPanel.innerHTML = '';
-              // For each route, display summary information.
-              for (var i = 0; i < route.legs.length; i++) {
-                var routeSegment = i + 1;
-                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-                    '</b><br>';
-                summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-                summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-                summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-              }
+            travelMode: routeType
+        }, function(response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                    $('.js-contentContainer').empty();
+              
+                    let route = response.routes[0];
+                    let totalDistance = 0;
+                    let parkTotal = route.legs.length;
+                    console.log(route);
+
+                // Search results summary information.
+                    for (let i = 0; i < route.legs.length; i++) {
+                        totalDistance += route.legs[i].distance.value;
+                    }   
+                    totalDistance *= 0.000621;
+                    totalDistance  = totalDistance.toFixed(2);
+            
+
+                $('.js-contentContainer').html(`
+                <section class="searchResultSummary">
+                    <h2>Results</h2>
+                    <div class="searchResultTotals">
+                        <p>PG#: <span>${parkTotal}</span></p>
+                        <p>Total Distance: <span>${totalDistance}</span></p>
+                    </div>
+                </section>
+                <section id="directionsList">
+                    <h2>Directions</h2>
+
+                </section>
+                <form class="createRouteForm js-createRouteForm" >
+                    <input type="submit" value="START OVER" id="createRouteButton"/>
+                </form>
+              `);
+
+
+                directionsDisplay.setPanel(document.getElementById('directionsList'));
+              
             } else {
               window.alert('Directions request failed due to ' + status);
             }
@@ -140,16 +133,22 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
     });
   }
 
+// This listener function starts the search function, which kicks off the rest of the process.
 function generateRoute() {
-    $('.js-createRouteForm').on('click',`#createRouteButton`, event => {
+    $('.js-createRouteForm').submit(event => {
         event.preventDefault(); 
+
+        const distanceAmount = $('#js-numberOfDistance').val() * 1609.344;
+
+        infoWindow.close();
+        
         navigator.geolocation.getCurrentPosition(function(position) {
 
             let searchLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     
             let request = {
                 location: searchLocation,
-                radius: '1000',
+                radius: distanceAmount,
                 keyword: 'park playground',
                 type: ['park']
             };
@@ -157,6 +156,58 @@ function generateRoute() {
             let service = new google.maps.places.PlacesService(map);
                 service.nearbySearch(request, callback);
         });
+    });
+}
+
+function locateDevice() {
+    $('.js-contentContainer').on('click',`.js-iconButton`, event => {
+        event.preventDefault();
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Current Location');
+            infoWindow.open(map);
+            map.setCenter(pos);
+
+        });
+    });
+}
+
+function startOver() {
+    $('.js-createRouteForm').submit(event => {
+        event.preventDefault(); 
+        $('.contentContainer').html(`
+            <div class="locateIconContainer">
+                <button class="iconButton js-iconButton">
+                    <i class="fas fa-street-view"></i>
+                </button>
+            </div>
+        
+            <h2>Instructions</h2>
+            <p>Enter the maximum amount of park you want to visit and the mile radius you want to search from your current location.</p>
+
+            <form class="createRouteForm js-createRouteForm" >
+                <legend>Route Information</legend>
+                <div class="numberInputContainer">
+                    <div class="numberInput">
+                        <label for="numberOfPlaygrounds">Max # of Playgrounds<br/>(btwn 1 and 23):</label>
+                        <input type="number" name="numberOfPlaygrounds" id="js-numberOfPlaygrounds" value="4" min="1" max="23"/>
+                    </div>
+                    <div class="numberInput">
+                        <label for="numberOfDistance">Distance in miles<br/>(btwn 1 and 30):</label>
+                        <input type="number" name="numberOfDistance" id="js-numberOfDistance" value="3" min="1" max="30" />
+                    </div>
+                </div>
+                <div class="typeInput">
+                    <label for="typeOfActivity">Type of Activity</label>
+                    <label><input type="radio" name="typeOfActivity" value="BICYCLING">Bike</label>
+                    <label><input type="radio" name="typeOfActivity" value="WALKING" checked>Run</label>
+                </div>
+                <input type="submit" value="CREATE ROUTE" id="createRouteButton"/>
+            </form>
+        `);
     });
 }
 
