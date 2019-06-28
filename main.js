@@ -95,7 +95,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
               
                     let route = response.routes[0];
                     let totalDistance = 0;
-                    let parkTotal = route.legs.length;
+                    let parkTotal = route.legs.length -1;
                     console.log(route);
 
                 // Search results summary information.
@@ -107,21 +107,26 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
             
 
                 $('.js-contentContainer').html(`
-                <section class="searchResultSummary">
-                    <h2>Results</h2>
-                    <div class="searchResultTotals">
-                        <p>PG#: <span>${parkTotal}</span></p>
-                        <p>Total Distance: <span>${totalDistance}</span></p>
+                    <div class="locateIconContainer">
+                        <button class="iconButton js-iconButton">
+                            <i class="fas fa-street-view"></i>
+                        </button>
                     </div>
-                </section>
-                <section id="directionsList">
-                    <h2>Directions</h2>
+                    <section class="searchResultSummary">
+                        <h2>Results</h2>
+                        <div class="searchResultTotals">
+                            <p>PG#: <span>${parkTotal}</span></p>
+                            <p>Total Distance: <span>${totalDistance}</span></p>
+                        </div>
+                    </section>
+                    <section id="directionsList">
+                        <h2>Directions</h2>
 
-                </section>
-                <form class="createRouteForm js-createRouteForm" >
-                    <input type="submit" value="START OVER" id="createRouteButton"/>
-                </form>
-              `);
+                    </section>
+                    <form class="createRouteForm js-createRouteForm" >
+                        <input type="submit" value="START OVER" id="createRouteButton"/>
+                    </form>
+                `);
 
 
                 directionsDisplay.setPanel(document.getElementById('directionsList'));
@@ -129,7 +134,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
             } else {
               window.alert('Directions request failed due to ' + status);
             }
-          });
+        });
     });
   }
 
@@ -178,7 +183,7 @@ function locateDevice() {
 function startOver() {
     $('.js-createRouteForm').submit(event => {
         event.preventDefault(); 
-        $('.contentContainer').html(`
+        $('.js-contentContainer').html(`
             <div class="locateIconContainer">
                 <button class="iconButton js-iconButton">
                     <i class="fas fa-street-view"></i>

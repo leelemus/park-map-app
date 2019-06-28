@@ -20,13 +20,6 @@
             <div id="map"></div>
         </section>
         <section class="contentContainer js-contentContainer">
-
-            <div class="locateIconContainer">
-                <button class="iconButton js-iconButton">
-                    <i class="fas fa-street-view"></i>
-                </button>
-            </div>
-            
             <h2>Instructions</h2>
             <p>Enter the maximum amount of park you want to visit and the mile radius you want to search from your current location.</p>
 
@@ -35,11 +28,67 @@
                 <div class="numberInputContainer">
                     <div class="numberInput">
                         <label for="numberOfPlaygrounds">Max # of Playgrounds<br/>(btwn 1 and 23):</label>
-                        <input type="number" name="numberOfPlaygrounds" id="js-numberOfPlaygrounds" value="4" min="1" max="23"/>
+                        <select name="numberOfPlaygrounds" id="js-numberOfPlaygrounds" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="3">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                        </select>
                     </div>
                     <div class="numberInput">
                         <label for="numberOfDistance">Distance in miles<br/>(btwn 1 and 30):</label>
-                        <input type="number" name="numberOfDistance" id="js-numberOfDistance" value="3" min="1" max="30" />
+                        <select name="numberOfDistance" id="js-numberOfDistance" >
+                                <option value="0.5">0.5</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="3">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                        </select>
                     </div>
                 </div>
                 <div class="typeInput">
@@ -49,6 +98,12 @@
                 </div>
                 <input type="submit" value="CREATE ROUTE" id="createRouteButton"/>
             </form>
+            <div class="locateIconContainer">
+                <button class="iconButton js-iconButton">
+                    <i class="fas fa-street-view"></i>
+                </button>
+            </div>
+            
         </section>
     </main>
     <footer>
@@ -57,11 +112,14 @@
         </p>
     </footer>
 
-<!-- PROD KEY -->
+<!-- PROD KEY 
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMIQdP2oIjdhcOKCCz28MGmQ9oIz4zog&callback=initMap&libraries=places,geometry"
       async defer></script>
+-->
 
-
+<!-- DEV KEY -->    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYH8cmjv-h_ykcstvnu2MaGPClWNS6fE&callback=initMap&libraries=places,geometry"
+async defer></script>
 
 </body>
 </html>
