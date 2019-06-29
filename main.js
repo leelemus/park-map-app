@@ -96,7 +96,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                     let route = response.routes[0];
                     let totalDistance = 0;
                     let parkTotal = route.legs.length -1;
-                    console.log(route);
 
                 // Search results summary information.
                     for (let i = 0; i < route.legs.length; i++) {
@@ -107,11 +106,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
             
 
                 $('.js-contentContainer').html(`
-                    <div class="locateIconContainer">
-                        <button class="iconButton js-iconButton">
-                            <i class="fas fa-street-view"></i>
-                        </button>
-                    </div>
                     <section class="searchResultSummary">
                         <h2>Results</h2>
                         <div class="searchResultTotals">
@@ -165,7 +159,7 @@ function generateRoute() {
 }
 
 function locateDevice() {
-    $('.js-contentContainer').on('click',`.js-iconButton`, event => {
+    $('.js-iconButton').click(event => {
         event.preventDefault();
 
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -184,11 +178,7 @@ function startOver() {
     $('.js-createRouteForm').submit(event => {
         event.preventDefault(); 
         $('.js-contentContainer').html(`
-            <div class="locateIconContainer">
-                <button class="iconButton js-iconButton">
-                    <i class="fas fa-street-view"></i>
-                </button>
-            </div>
+            
         
             <h2>Instructions</h2>
             <p>Enter the maximum amount of park you want to visit and the mile radius you want to search from your current location.</p>
