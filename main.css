@@ -59,6 +59,7 @@ footer p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 1vh auto 2vh;
 }
 
 .searchResultTotals {
@@ -102,7 +103,7 @@ footer p{
     border: solid 1px lightblue;
     z-index: 0;
     overflow-y: scroll;
-    height: 49vh;
+    min-height: 49vh;
 }
 
 .contentContainer > p {
@@ -209,7 +210,8 @@ footer p{
 
 #directionsList  {
     width: 100%;
-    margin: 3vh auto;
+    height: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
