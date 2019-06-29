@@ -115,28 +115,29 @@ footer p{
 
 .locateIconContainer {
     position: absolute;
-    right: 3vw;
+    right: 0;
     height: 2em;
     z-index: 0;
 }
 
 .iconButton {
-    background-color: DodgerBlue;
+    background-color: coral;
     border: none;
-    color: white;
+    border-radius:3px;
+    color: black;
     cursor: pointer;
     font-size: .8em;
-    width: 4vh;
-    height: 4vh;
     padding: 0;
+    margin: 2vh 2vw;
   }
 
 .iconButton:hover {
-    background-color: red;
+    background-color: black;
+    color: coral;
 }
 
-.iconButton p{
-    font-size: .2em;
+.iconButton p {
+    font-size: 6px;
     margin: 0;
 }
 
@@ -202,23 +203,6 @@ footer p{
     border: 2px solid #2d2d2d;
 }
 
-.startForm, .startOver {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.uploadFormSection, .uploadForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.uploadForm input, .uploadForm label {
-    margin: 2vh auto;
-}
-
 .startOver form {
     margin: 1vh auto;
 }
@@ -234,7 +218,7 @@ footer p{
 
 #locationFinder {
     position: fixed;
-    top: 48vh;
+    top: 46vh;
     height: 2em;
     width: 100%;
     z-index: 1;
@@ -257,9 +241,20 @@ footer p{
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 
+
 }
 
 /* Large devices (desktops and large screens, 1000 and up) */
 @media only screen and (min-width: 1000px) {
+    .iconButton {
+        margin: 4vh 8vw;
+      }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .iconButton {
+        margin: 2vh 20vw;
+      }
 
 }

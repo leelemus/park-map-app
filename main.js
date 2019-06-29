@@ -3,7 +3,6 @@
 var map;
 var service;
 var infoWindow;
-var pos;
 
 function initMap() {
 
@@ -24,6 +23,8 @@ function initMap() {
         navigator.geolocation.getCurrentPosition(
             function(position) {
                 let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                localStorage.setItem('globalLat', position.coords.latitude);
+                localStorage.setItem('globalLng', position.coords.longitude);
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Current Location');
                 infoWindow.open(map);
@@ -65,11 +66,11 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
     const routeType = $("form input[type='radio']:checked").val();
     const maxResult = $('#js-numberOfParks').val();
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-        let pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
+        let localLat = Number(localStorage.getItem('globalLat'));
+        console.log(localLat);
+        console.log(typeof(localLat));
+
+        let pos = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
 
         for (let i = 0; i < maxResult; i++) {
             if (checkboxArray[i].place_id) {
@@ -81,7 +82,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
               });
             }
         }
-
         directionsService.route({
             origin: pos,
             destination: pos,
@@ -124,13 +124,15 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                     </section>
                 `);
 
+
                 directionsDisplay.setPanel(document.getElementById('directionsList'));
-                
+
+                startOver();
+              
             } else {
               window.alert('Directions request failed due to ' + status);
             }
         });
-    });
   }
 
 // This listener function starts the search function, which kicks off the rest of the process.
@@ -141,21 +143,26 @@ function generateRoute() {
         const distanceAmount = $('#js-numberOfDistance').val() * 1609.344;
 
         infoWindow.close();
-        
-        navigator.geolocation.getCurrentPosition(function(position) {
 
-            let searchLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        let searchLocation = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
     
-            let request = {
-                location: searchLocation,
-                radius: distanceAmount,
-                keyword: 'park playground',
-                type: ['park']
-            };
+        let request = {
+            location: searchLocation,
+            radius: distanceAmount,
+            keyword: 'park playground',
+            type: ['park']
+        };
     
-            let service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, callback);
-        });
+        let service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, callback);
+    });
+}
+
+function startOver() {
+    $('.js-contentContainer').click('#js-startOverButton', event => {
+        event.preventDefault(); 
+        localStorage.clear();
+        location.reload();
     });
 }
 
@@ -165,7 +172,7 @@ function locateDevice() {
 
         navigator.geolocation.getCurrentPosition(function(position) {
 
-            pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             infoWindow.setPosition(pos);
             infoWindow.setContent('Current Location');
             infoWindow.open(map);
@@ -174,6 +181,7 @@ function locateDevice() {
         });
     });
 }
+
 
 function mapApp() {
     locateDevice ();
