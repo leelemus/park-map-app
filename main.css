@@ -86,6 +86,7 @@ footer p{
     width: 100vw;
     height: 42vh;
     border: 1px solid grey;
+    z-index: 2;
 }
 
 #map {
@@ -96,13 +97,13 @@ footer p{
 .contentContainer {
     top: 46vh;
     display: flex;
-    position: fixed;
+    position: absolute;
     flex-direction: column;
     width: 100vw;
     padding: 3vw;
     border: solid 1px lightblue;
     z-index: 0;
-    overflow: scroll;
+    overflow-y: scroll;
     min-height: 49vh;
 }
 
