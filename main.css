@@ -129,6 +129,8 @@ footer p{
     font-size: .8em;
     padding: 0;
     margin: 2vh 2vw;
+    width: 2.6em;
+    height: 2.6em;
   }
 
 .iconButton:hover {
@@ -137,7 +139,7 @@ footer p{
 }
 
 .iconButton p {
-    font-size: 6px;
+    font-size: 8px;
     margin: 0;
 }
 
@@ -192,7 +194,6 @@ footer p{
     margin: 0 1vw;
 }
 
-
 .mapButtons {
     width: 50vw;
     height: 5vh;
@@ -240,7 +241,15 @@ footer p{
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    .iconButton {
+        font-size: 1.3em;
+        width: 5vw;
+        height: 5vw;
+    }
 
+    .iconButton p {
+        font-size: .3em;
+    }
 
 }
 
@@ -254,7 +263,15 @@ footer p{
 
 @media only screen and (min-width: 1200px) {
     .iconButton {
-        margin: 2vh 20vw;
-      }
+        font-size: 2.5em;
+        width: 8vw;
+        height: 8vw;
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .iconButton p {
+        font-size: .5em;
+    }
 
 }
