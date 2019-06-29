@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: 'Comfortaa', cursive;
 }
 
 header {
@@ -74,7 +75,7 @@ footer p{
     margin: 0 2vw;
 }
 
-.playgroundList, .directionsList, .startForm {
+.directionsList, .startForm {
     width: 100vw;
 }
 
@@ -103,8 +104,13 @@ footer p{
     min-height: 49vh;
 }
 
-.contentContainer > p {
-    margin-top: 0;
+.contentContainer ol {
+    margin: 0 auto;
+}
+
+.contentContainer ol li {
+    font-size: .8em;
+    line-height: 1.7em;
 }
 
 .locateIconContainer {
@@ -119,14 +125,22 @@ footer p{
     border: none;
     color: white;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: .8em;
+    width: 4vh;
+    height: 4vh;
+    padding: 0;
   }
 
 .iconButton:hover {
     background-color: red;
 }
 
-.createRouteForm {
+.iconButton p{
+    font-size: .2em;
+    margin: 0;
+}
+
+.createRouteForm, .startOverForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,6 +173,7 @@ footer p{
 .numberInput label {
     font-size: .7em;
     text-align: right;
+    margin-right: 2vw;
 }
 
 .typeInput {
@@ -176,12 +191,15 @@ footer p{
     margin: 0 1vw;
 }
 
-#createRouteButton {
+
+.mapButtons {
     width: 50vw;
     height: 5vh;
-    background-color: blueviolet;
-    color:white;
+    background-color: coral;
+    color: #2d2d2d;
     margin: 3vw auto auto;
+    border-radius: 5px;
+    border: 2px solid #2d2d2d;
 }
 
 .startForm, .startOver {

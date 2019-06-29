@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Playground Map App">
-        <title>Playground Map App</title>
+        <title>Park Map App</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:500,600,700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/9bf45178cc.js"></script>
   <script src="./main.js"></script>
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" type="text/css">
@@ -13,7 +14,7 @@
 </head>
 <body>
     <header>
-        <h1>Playground Map App</h1>
+        <h1>Park Map App</h1>
     </header>
     <main>
         <section class="mapContainer">
@@ -23,19 +24,24 @@
                 <div class="locateIconContainer">
                         <button class="iconButton js-iconButton">
                             <i class="fas fa-street-view"></i>
+                            <p>Locate</p>
                         </button>
                 </div>
         </section>
         <section class="contentContainer js-contentContainer">
-            <h2>Instructions</h2>
-            <p>Enter the maximum amount of park you want to visit and the mile radius you want to search from your current location.</p>
+            <h2>Create a Bike or Run Loop to Parks Near You!</h2>
+            <ol>
+                <li>Enter the maximum amount of parks you want to visit</li>
+                <li>In miles, enter how far the parks are located from you</li>
+                <li>Choose the type of directions you want (Bike or Run/Walk)</li>
+                <li>Click "CREATE ROUTE"</li>
+            </ol>
 
             <form class="createRouteForm js-createRouteForm" >
-                <legend>Route Information</legend>
                 <div class="numberInputContainer">
                     <div class="numberInput">
-                        <label for="numberOfPlaygrounds">Max # of Playgrounds<br/>(btwn 1 and 23):</label>
-                        <select name="numberOfPlaygrounds" id="js-numberOfPlaygrounds" >
+                        <label for="numberOfParks">Number of Parks<br/>(btwn 1 and 23):</label>
+                        <select name="numberOfParks" id="js-numberOfParks" >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -62,7 +68,7 @@
                         </select>
                     </div>
                     <div class="numberInput">
-                        <label for="numberOfDistance">Distance in miles<br/>(btwn 1 and 30):</label>
+                        <label for="numberOfDistance">Search Distance<br/>(btwn 0.5 and 30):</label>
                         <select name="numberOfDistance" id="js-numberOfDistance" >
                                 <option value="0.5">0.5</option>
                                 <option value="1">1</option>
@@ -99,11 +105,11 @@
                     </div>
                 </div>
                 <div class="typeInput">
-                    <label for="typeOfActivity">Type of Activity</label>
-                    <label><input type="radio" name="typeOfActivity" value="BICYCLING">Bike</label>
-                    <label><input type="radio" name="typeOfActivity" value="WALKING" checked>Run</label>
+                    <label for="typeOfActivity">Type of Activity:</label>
+                    <label><input type="radio" name="typeOfActivity" value="BICYCLING"> Bike</label>
+                    <label><input type="radio" name="typeOfActivity" value="WALKING" checked> Run</label>
                 </div>
-                <input type="submit" value="CREATE ROUTE" id="createRouteButton"/>
+                <input type="submit" value="CREATE ROUTE" class="mapButtons"/>
             </form>
         </section>
     </main>
@@ -116,7 +122,6 @@
 <!-- PROD KEY -->
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMIQdP2oIjdhcOKCCz28MGmQ9oIz4zog&callback=initMap&libraries=places,geometry"
       async defer></script>
-
 
 
 </body>

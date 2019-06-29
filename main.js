@@ -63,7 +63,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
     let waypts = [];
     let checkboxArray = results;
     const routeType = $("form input[type='radio']:checked").val();
-    const maxResult = $('#js-numberOfPlaygrounds').val();
+    const maxResult = $('#js-numberOfParks').val();
 
     navigator.geolocation.getCurrentPosition(function(position) {
         let pos = {
@@ -117,14 +117,15 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                         <h2>Directions</h2>
 
                     </section>
-                    <form class="createRouteForm js-createRouteForm" >
-                        <input type="submit" value="START OVER" id="createRouteButton"/>
-                    </form>
+                    <section id="routeButtonContainer">
+                        <form class="startOver js-startOverForm" >
+                            <input type="submit" value="START OVER" id="js-startOverButton" class="mapButtons"/>
+                        </form>
+                    </section>
                 `);
 
-
                 directionsDisplay.setPanel(document.getElementById('directionsList'));
-              
+                
             } else {
               window.alert('Directions request failed due to ' + status);
             }
@@ -171,38 +172,6 @@ function locateDevice() {
             map.setCenter(pos);
 
         });
-    });
-}
-
-function startOver() {
-    $('.js-createRouteForm').submit(event => {
-        event.preventDefault(); 
-        $('.js-contentContainer').html(`
-            
-        
-            <h2>Instructions</h2>
-            <p>Enter the maximum amount of park you want to visit and the mile radius you want to search from your current location.</p>
-
-            <form class="createRouteForm js-createRouteForm" >
-                <legend>Route Information</legend>
-                <div class="numberInputContainer">
-                    <div class="numberInput">
-                        <label for="numberOfPlaygrounds">Max # of Playgrounds<br/>(btwn 1 and 23):</label>
-                        <input type="number" name="numberOfPlaygrounds" id="js-numberOfPlaygrounds" value="4" min="1" max="23"/>
-                    </div>
-                    <div class="numberInput">
-                        <label for="numberOfDistance">Distance in miles<br/>(btwn 1 and 30):</label>
-                        <input type="number" name="numberOfDistance" id="js-numberOfDistance" value="3" min="1" max="30" />
-                    </div>
-                </div>
-                <div class="typeInput">
-                    <label for="typeOfActivity">Type of Activity</label>
-                    <label><input type="radio" name="typeOfActivity" value="BICYCLING">Bike</label>
-                    <label><input type="radio" name="typeOfActivity" value="WALKING" checked>Run</label>
-                </div>
-                <input type="submit" value="CREATE ROUTE" id="createRouteButton"/>
-            </form>
-        `);
     });
 }
 
