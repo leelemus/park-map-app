@@ -102,7 +102,7 @@ footer p{
     padding: 3vw;
     border: solid 1px lightblue;
     z-index: 0;
-    overflow-y: scroll;
+    overflow: scroll;
     min-height: 49vh;
 }
 
