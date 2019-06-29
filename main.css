@@ -9,11 +9,10 @@ body {
 }
 
 header {
-    /*display: flex;
-    flex-direction: row;
-    justify-content: space-around;*/
     position: fixed;
     top: 0px;
+    display: flex;
+    align-items: center;
     width: 100vw;
     height: 4vh;
     background-color: #222;
@@ -41,17 +40,20 @@ main {
 }
 
 footer {
-    top: 95vh;
+    top: 98vh;
     display: flex;
     position: fixed;
     flex-direction: column;
     width: 100vw;
+    height: 2vh;
+    background-color: black;
 }
 
 footer p{
     text-align: center;
-    font-size: .6em;
+    font-size: .8em;
     margin: auto auto 0;
+    color:white;
 }
 
 .searchResultSummary {
@@ -73,19 +75,14 @@ footer p{
 }
 
 .playgroundList, .directionsList, .startForm {
-    border: solid 1px blue;
     width: 100vw;
 }
 
 .mapContainer {
-    /*display:flex;
-    justify-content: center;
-    align-items: center;*/
     position: fixed;
     top: 4vh;
     width: 100vw;
     height: 42vh;
-    border: 1px solid grey;
     z-index: 2;
 }
 
@@ -100,8 +97,7 @@ footer p{
     position: absolute;
     flex-direction: column;
     width: 100vw;
-    padding: 3vw;
-    border: solid 1px lightblue;
+    padding: 3vw 3vw 5vh 3vw;
     z-index: 0;
     overflow-y: scroll;
     min-height: 49vh;
