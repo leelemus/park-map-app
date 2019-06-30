@@ -65,17 +65,15 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
     let checkboxArray = results;
     const routeType = $("form input[type='radio']:checked").val();
     const maxResult = $('#js-numberOfParks').val();
-    let parkNumber;
+    const maxFound = checkboxArray.length;
+    let pos = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
 
-        let pos = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
-    console.log(checkboxArray.length);
+    console.log(maxResult);
+    console.log(maxFound);
 
-        if (maxResult > checkboxArray.length) {
-            parkNumber = checkboxArray.length;
-        }
-
-        for (let i = 0; i < parkNumber; i++) {
+        for (let i = 0; i < maxResult && i < maxFound; i++) {
             if (checkboxArray[i].place_id) {
+                console.log(i);
               waypts.push({
                 location: {
                   'placeId': checkboxArray[i].place_id
