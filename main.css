@@ -98,7 +98,7 @@ footer p{
   }
 
 .contentContainer {
-    top: 46vh;
+    top: 44vh;
     display: flex;
     position: absolute;
     flex-direction: column;
