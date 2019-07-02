@@ -9,7 +9,31 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 43.074409, lng: -89.384085},
         zoom: 15,
-        gestureHandling: 'greedy'
+        gestureHandling: 'greedy',
+        styles: [
+            {"featureType":"administrative","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType": "administrative.neighborhood","elementType": "all","stylers": [{"visibility": "on"},{"hue": "#0080ff"},{"weight": "0.63"}]},
+            {"featureType": "landscape","elementType": "all","stylers": [{"color": "#f2f2f2"},{"visibility": "on"}]},
+            {"featureType": "landscape","elementType": "geometry","stylers": [{"visibility": "on"}]},
+            {"featureType":"poi","elementType":"all","stylers":[{"visibility":"on"},{"hue": "#0092ff"}]},
+            {"featureType": "poi","elementType": "geometry","stylers": [{"visibility": "off"},{"hue": "#00ff89"}]},
+            {"featureType":"poi.attraction","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"poi.government","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"poi.medical","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"poi.park","elementType":"all","stylers":[{"visibility":"on"},{"hue": "#76ff00"}]},
+            {"featureType":"poi.place_of_worship","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"poi.school","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"poi.sports_complex","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType": "road","elementType": "all","stylers": [{"saturation": -20},{"lightness": 10},{"visibility": "on"}]},
+            {"featureType": "road","elementType": "geometry","stylers": [{"visibility": "on"}]},
+            {"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},
+            {"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"off"}]},
+            {"featureType":"road.highway","elementType":"labels.icon","stylers":[{"visibility":"on"}]},
+            {"featureType":"transit.line","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"transit.line","elementType":"labels","stylers":[{"visibility":"off"}]},
+            {"featureType":"transit.station","elementType":"all","stylers":[{"visibility":"off"}]},
+            {"featureType":"water","elementType":"all","stylers":[{"color": "#0093b2"},{"visibility": "on"}]}]
     });
 
     infoWindow = new google.maps.InfoWindow;
@@ -68,9 +92,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
     const maxFound = checkboxArray.length;
     let pos = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
 
-    console.log(maxResult);
-    console.log(maxFound);
-
         for (let i = 0; i < maxResult && i < maxFound; i++) {
             if (checkboxArray[i].place_id) {
                 console.log(i);
@@ -104,6 +125,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                     totalDistance *= 0.000621;
                     totalDistance  = totalDistance.toFixed(2);
             
+                $( '.js-restartButton').removeClass( "hidden" );
 
                 $('.js-contentContainer').html(`
                     <section class="searchResultSummary">
@@ -159,7 +181,7 @@ function generateRoute() {
 }
 
 function startOver() {
-    $('.js-contentContainer').click('#js-startOverButton', event => {
+    $('#buttonListener').click('#js-startOverButton', event => {
         event.preventDefault(); 
         localStorage.clear();
         location.reload();
@@ -167,7 +189,7 @@ function startOver() {
 }
 
 function locateDevice() {
-    $('.js-iconButton').click(event => {
+    $('.js-locateButton').click(event => {
         event.preventDefault();
 
         navigator.geolocation.getCurrentPosition(function(position) {

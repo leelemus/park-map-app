@@ -118,40 +118,56 @@ footer p{
     line-height: 1.7em;
 }
 
-.locateIconContainer {
+.topButtonMenu {
     position: absolute;
-    right: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
     height: 2em;
     z-index: 0;
 }
 
-.iconButton {
+.locateButton, .restartButton {
     background-color: coral;
     border: none;
-    border-radius:3px;
+    border-radius: 5px;
     color: black;
     cursor: pointer;
-    font-size: .8em;
+    font-size: .7em;
     padding: 0;
-    margin: 2vh 2vw;
-    width: 2.6em;
-    height: 2.6em;
-  }
-
-.iconButton:hover {
-    background-color: black;
-    color: coral;
+    width: 4em;
+    height: 3em;
 }
 
-.iconButton p {
-    font-size: 8px;
-    margin: 0;
+.restartButton {
+    margin: 2vw 0 0 2vw;
+}
+
+.hidden {
+    opacity: 0;
+    z-index: -1;
+}
+
+.locateButton {
+    margin: 2vw 2vw 0 0;
+}
+
+.locateButton:hover, .restartButton:hover {
+    background-color: black;
+    color: coral;
 }
 
 .createRouteForm, .startOverForm {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+fieldset {
+    display:flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
 }
 
 .numberInputContainer {
@@ -222,7 +238,7 @@ footer p{
     align-items: center;
 }
 
-#locationFinder {
+#topButtonContainer {
     position: fixed;
     top: 46vh;
     height: 2em;
@@ -230,7 +246,7 @@ footer p{
     z-index: 1;
 }
 
-#routeButtonContainer {
+#routeButtonMenu {
     width: 100%;
     min-height: 100%;
     margin: 0 auto;
@@ -250,9 +266,6 @@ footer p{
         font-size: 1.3em;
         width: 5vw;
         height: 5vw;
-    }
-
-    .iconButton p {
         font-size: .3em;
     }
 
@@ -273,10 +286,6 @@ footer p{
         height: 8vw;
         max-width: 75px;
         max-height: 75px;
-    }
-
-    .iconButton p {
-        font-size: .6em;
     }
 
 }

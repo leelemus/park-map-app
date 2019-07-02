@@ -16,15 +16,17 @@
     <header>
         <h1>Park Map App</h1>
     </header>
-    <main>
+    <main id="buttonListener">
         <section class="mapContainer">
             <div id="map"></div>
         </section>
-        <section id="locationFinder">
-                <div class="locateIconContainer">
-                        <button class="iconButton js-iconButton">
-                            <i class="fas fa-street-view"></i>
-                            <p>Locate</p>
+        <section id="topButtonContainer">
+                <div class="topButtonMenu">
+                        <button class="restartButton js-restartButton hidden">
+                                <i class="fas fa-redo-alt"></i><br/>Reset
+                            </button>
+                        <button class="locateButton js-locateButton">
+                            <i class="fas fa-street-view"></i><br/>Locate
                         </button>
                 </div>
         </section>
@@ -40,74 +42,74 @@
             <form class="createRouteForm js-createRouteForm" >
                 <div class="numberInputContainer">
                     <div class="numberInput">
-                        <label for="numberOfParks">Number of<br/>Parks:</label>
-                        <select name="numberOfParks" id="js-numberOfParks" >
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="3">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                        </select>
+                            <label for="js-numberOfParks">Number of<br/>Parks:</label>
+                            <select name="numberOfParks" id="js-numberOfParks" >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                            </select>
                     </div>
                     <div class="numberInput">
-                        <label for="numberOfDistance">Search<br/>Distance:</label>
-                        <select name="numberOfDistance" id="js-numberOfDistance" >
-                                <option value="0.5">0.5</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="3">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                        </select>
+                            <label for="js-numberOfDistance">Search<br/>Distance:</label>
+                            <select name="numberOfDistance" id="js-numberOfDistance" >
+                                    <option value="0.5">0.5</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="3">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                            </select>
                     </div>
                 </div>
                 <div class="typeInput">
-                    <label for="typeOfActivity">Type of Activity:</label>
-                    <label><input type="radio" name="typeOfActivity" value="BICYCLING"> Bike</label>
-                    <label><input type="radio" name="typeOfActivity" value="WALKING" checked> Run</label>
+                        <label>Type of Activity:</label>
+                        <label><input type="radio" name="typeOfActivity" value="BICYCLING"> Bike</label>
+                        <label><input type="radio" name="typeOfActivity" value="WALKING" checked> Run</label>
                 </div>
                 <input type="submit" value="CREATE ROUTE" class="mapButtons"/>
             </form>
@@ -119,10 +121,13 @@
         </p>
     </footer>
 
-<!-- PROD KEY  -->
+<!-- PROD KEY  
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMIQdP2oIjdhcOKCCz28MGmQ9oIz4zog&callback=initMap&libraries=places,geometry"
-      async defer></script>  
+      async defer></script>  -->
 
+<!-- DEV KEY -->    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYH8cmjv-h_ykcstvnu2MaGPClWNS6fE&callback=initMap&libraries=places,geometry"
+async defer></script>
 
 </body>
 </html>
