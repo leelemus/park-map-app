@@ -94,7 +94,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
 
         for (let i = 0; i < maxResult && i < maxFound; i++) {
             if (checkboxArray[i].place_id) {
-                console.log(i);
               waypts.push({
                 location: {
                   'placeId': checkboxArray[i].place_id
@@ -113,17 +112,28 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                 if (status === 'OK') {
                     directionsDisplay.setDirections(response);
                     $('.js-contentContainer').empty();
-              
+
                     let route = response.routes[0];
                     let totalDistance = 0;
-                    let parkTotal = route.legs.length -1;
+                    let totalSeconds = 0;
+                    let totalTime;
+                    let parkTotal = route.legs.length - 1;
+
+                    let detailedDirections = directionsDisplay.directions.routes[0].legs;
+
+                    console.log(detailedDirections);
 
                 // Search results summary information.
                     for (let i = 0; i < route.legs.length; i++) {
                         totalDistance += route.legs[i].distance.value;
+                        totalSeconds += route.legs[i].duration.value;
                     }   
                     totalDistance *= 0.000621;
                     totalDistance  = totalDistance.toFixed(2);
+
+                    totalTime = timeCreator(totalSeconds);
+
+
             
                 $( '.js-restartButton').removeClass( "hidden" );
 
@@ -131,8 +141,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                     <section class="searchResultSummary">
                         <h2>Results</h2>
                         <div class="searchResultTotals">
-                            <p>PG#: <span>${parkTotal}</span></p>
+                            <p>Park Stops: <span>${parkTotal}</span></p>
                             <p>Total Distance: <span>${totalDistance}</span></p>
+                            <p>Estimated Time: <span>${totalTime}</span></p>
                         </div>
                     </section>
                     <section id="directionsList">
@@ -141,7 +152,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                     </section>
                     <section id="routeButtonContainer">
                         <form class="startOver js-startOverForm" >
-                            <input type="submit" value="START OVER" id="js-startOverButton" class="mapButtons"/>
+                            <input type="submit" value="START OVER" class="js-restartButton mapButtons"/>
                         </form>
                     </section>
                 `);
@@ -156,6 +167,32 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
             }
         });
   }
+
+  function timeCreator (Totalseconds) {
+
+    const hours = Math.floor(Totalseconds/3600);
+    const minutes = Math.floor((Totalseconds - (hours * 3600))/60);
+    const seconds = Totalseconds % 60;
+
+    let hoursString = hours.toString();
+    let minutesString = minutes.toString();
+    let secondsString = seconds.toString();
+
+    console.log (minutesString.length);
+
+    if ( hoursString.length === 1 ) {
+        hoursString = "0" + hoursString;
+    }
+    if ( minutesString.length === 1 ) {
+        minutesString = "0" + minutes;
+    }
+    if ( secondsString.length === 1 ) {
+        secondsString = "0" + seconds;
+    }
+
+    return hoursString + ":" + minutesString + ":" + secondsString;
+
+}
 
 // This listener function starts the search function, which kicks off the rest of the process.
 function generateRoute() {
@@ -181,7 +218,7 @@ function generateRoute() {
 }
 
 function startOver() {
-    $('#buttonListener').click('#js-startOverButton', event => {
+    $('.js-restartButton').click(event => {
         event.preventDefault(); 
         localStorage.clear();
         location.reload();
@@ -189,7 +226,7 @@ function startOver() {
 }
 
 function locateDevice() {
-    $('.js-locateButton').click(event => {
+    $('.topButtonMenu').click('#js-locateButton', event => {
         event.preventDefault();
 
         navigator.geolocation.getCurrentPosition(function(position) {
