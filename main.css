@@ -314,6 +314,7 @@ fieldset {
     margin: 2vw auto 3vh;
     border-radius: 5px;
     border: 2px solid #2d2d2d;
+    padding: 1vw;
 }
 
 .startOver form {
@@ -403,7 +404,7 @@ fieldset {
         font-size: 1.5em;
         margin-top: 5vh;
     }
-    
+
     .iconButton {
         margin: 4vh 8vw;
       }
