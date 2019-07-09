@@ -142,7 +142,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                         <h2>Results</h2>
                         <div class="searchResultTotals">
                             <p>Park Stops:<br/><span class="totalResult">${parkTotal}</span></p>
-                            <p>Total Distance:<br/><span class="totalResult">${totalDistance}</span></p>
+                            <p>Total Miles:<br/><span class="totalResult">${totalDistance}</span></p>
                             <p>Estimated Time:<br/><span class="totalResult">${totalTime}</span></p>
                         </div>
                     </section>
