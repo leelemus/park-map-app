@@ -106,10 +106,20 @@
                             </select>
                     </div>
                 </div>
-                <div class="typeInput">
-                        <label>Type of Activity:</label>
-                        <label><input type="radio" name="typeOfActivity" value="BICYCLING"> Bike</label>
-                        <label><input type="radio" name="typeOfActivity" value="WALKING" checked> Run</label>
+                <h3>Type of Activity:</h3>
+                <div class="typeInputContainer">
+                        <div class="typeInput bicycling">
+                            <input type="radio" value="BICYCLING" id="bicycling" name="typeOfActivity" required>
+                            <label for="bicycling">
+                                <i class="fas fa-biking"></i>&nbsp;Bike
+                            </label>
+                        </div>
+                        <div class="typeInput walking">
+                            <input type="radio" value="WALKING" id="walking" name="typeOfActivity" required>
+                            <label for="walking">
+                                <i class="fas fa-running"></i>&nbsp;Walk/Run
+                            </label>
+                        </div>
                 </div>
                 <input type="submit" value="CREATE ROUTE" class="mapButtons"/>
             </form>
@@ -121,10 +131,13 @@
         </p>
     </footer>
 
-<!-- PROD KEY   -->
+<!-- PROD KEY   
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMIQdP2oIjdhcOKCCz28MGmQ9oIz4zog&callback=initMap&libraries=places,geometry"
-      async defer></script> 
+      async defer></script> -->
 
+<!-- DEV KEY -->    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjYH8cmjv-h_ykcstvnu2MaGPClWNS6fE&callback=initMap&libraries=places,geometry"
+async defer></script>
 
 </body>
 </html>

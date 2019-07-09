@@ -31,9 +31,14 @@ h1, h2, h3, legend, p {
     text-align: center;
 }
 
-h2{ 
-    margin: 4vh auto 3vw;
+h2 {
+    margin: 3vh auto .5vw;
     font-size: 1em;
+}
+
+h3 {
+    margin: 2vh auto 1vw;
+    font-size: .9em;
 }
 
 #instructionTitle {
@@ -55,7 +60,7 @@ footer {
     background-color: black;
 }
 
-footer p{
+footer p {
     text-align: center;
     font-size: .8em;
     margin: auto auto 0;
@@ -118,17 +123,28 @@ footer p{
     line-height: 1.7em;
 }
 
+#topButtonContainer {
+    position: fixed;
+    top: 46vh;
+    height: 2em;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
 .topButtonMenu {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    width: 100vw;
+    width: 100%;
     height: 2em;
     z-index: 0;
 }
 
 .locateButton, .restartButton {
-    background-color: coral;
+    background-color: #EE7F55;
     border: none;
     border-radius: 5px;
     color: black;
@@ -154,7 +170,7 @@ footer p{
 
 .locateButton:hover, .restartButton:hover {
     background-color: black;
-    color: coral;
+    color: #EE7F55;
 }
 
 .createRouteForm, .startOverForm {
@@ -200,20 +216,65 @@ fieldset {
     margin-right: 2vw;
 }
 
+.typeInputContainer {
+    display: flex;
+    flex-direction: row;
+}
+
 .typeInput {
     display: flex;
     flex-direction: row;
-    margin: 2vh auto;
+    justify-content: center;
+    margin: 2vh 0;
+    width: 15vw;
 }
 
-.typeInput input [type=radio] {
+.typeInput input:hover {
+    cursor: pointer;
+}
+
+.typeInput input {
     display: flex;
     flex-direction: row;
-}
+    width: 5px;
+    zoom: 0.01;
+  }
 
 .typeInput label {
-    margin: 0 1vw;
+    margin: 0;
+    padding: 1vw;
+    width: 100%;
+    border: solid #137685;
+    background-color: #E84636;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #137685;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 200ms ease-in;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+.walking label {
+    border-radius: 0 5px 5px 0;
+    border-width: 2px 2px 2px 1px;
 }
+
+.bicycling label {
+    border-radius: 5px 0 0 5px;
+    border-width: 2px 1px 2px 2px;
+}
+
+.typeInput input:checked ~ label {
+    color: #E84636;
+    background-color: #137685;
+    border-color:#E84636;
+    transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
 
 #routeButtonContainer {
     display: flex;
@@ -223,7 +284,7 @@ fieldset {
 .mapButtons {
     width: 50vw;
     height: 5vh;
-    background-color: coral;
+    background-color: #EE7F55;
     color: #2d2d2d;
     margin: 3vw auto auto;
     border-radius: 5px;
@@ -243,14 +304,6 @@ fieldset {
     align-items: center;
 }
 
-#topButtonContainer {
-    position: fixed;
-    top: 46vh;
-    height: 2em;
-    width: 100%;
-    z-index: 1;
-}
-
 #routeButtonMenu {
     width: 100%;
     min-height: 100%;
@@ -263,15 +316,37 @@ fieldset {
 /* Small devices (portrait tablets and large phones, 501px and up) */
 @media only screen and (min-width: 501px) {
 
+    .topButtonMenu {
+        width: 80%;
+    }
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+
     .iconButton {
         font-size: 1.3em;
         width: 5vw;
         height: 5vw;
         font-size: .3em;
+    }
+
+    .topButtonMenu {
+        width: 70%;
+    }
+
+    .numberInputContainer {
+        width: 70%;
+    }  
+
+    .createRouteForm {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .mapButtons {
+        width: 40vw;
     }
 
 }
@@ -282,6 +357,21 @@ fieldset {
         margin: 4vh 8vw;
       }
 
+    .topButtonMenu {
+        width: 60%;
+    }
+
+    .numberInputContainer {
+        width: 50%;
+    }   
+
+    .mapButtons {
+        width: 30vw;
+    }
+
+    .mapButtons {
+        width: 30vw;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -292,5 +382,10 @@ fieldset {
         max-width: 75px;
         max-height: 75px;
     }
-
+    .topButtonMenu {
+        width: 50%;
+    }
+    .mapButtons {
+        width: 20vw;
+    }
 }
