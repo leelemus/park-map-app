@@ -136,6 +136,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
 
             
                 $( '.js-restartButton').removeClass( "hidden" );
+                $( '.js-contentContainer').removeClass( "noScroll" );
 
                 $('.js-contentContainer').html(`
                     <section class="searchResultSummary">
