@@ -136,8 +136,7 @@ footer p {
     width: 100vw;
     padding: 1vw 3vw;
     z-index: 0;
-    min-height: 54vh;
-    background-color: #fdfdfd;
+    min-height: 50vh;
 }
 
 .contentContainer ol {
