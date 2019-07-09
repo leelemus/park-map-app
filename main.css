@@ -173,7 +173,7 @@ footer p {
     border-radius: 5px;
     color: #2d2d2d;
     cursor: pointer;
-    font-size: .7em;
+    font-size: 1em;
     padding: 0;
     width: 4.2em;
     height: 3.2em;
@@ -249,6 +249,7 @@ fieldset {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     margin: 1vh 0;
     width: 25vw;
     height: 2em;
@@ -412,12 +413,9 @@ fieldset {
         left: 50%;
         margin-left: -600px;
     }
-    .iconButton {
-        font-size: 1.5em;
-        width: 8vw;
-        height: 8vw;
-        max-width: 75px;
-        max-height: 75px;
+    .locateButton, .restartButton {
+        width: 4.8em;
+        height: 3.5em;
     }
     .topButtonMenu {
         width: 50%;
@@ -428,6 +426,9 @@ fieldset {
         max-width: 200px;
     }   
 
+    .typeInput label {
+        font-size: 1.2em;
+    }
     .mapButtons {
         width: 22vw;
         max-width: 400px;
