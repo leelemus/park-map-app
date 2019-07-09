@@ -309,10 +309,9 @@ fieldset {
 
 .mapButtons {
     width: 60vw;
-    height: 5vh;
     background-color: #FF8E00;
     color: #2d2d2d;
-    margin: 2vw auto auto;
+    margin: 2vw auto 1vh;
     border-radius: 5px;
     border: 2px solid #2d2d2d;
 }
@@ -351,6 +350,20 @@ fieldset {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin-top: 2vh;
+    }
+
+    #instructionTitle {
+        font-size: 1.5em;
+        margin-top: 5vh;
+    }
+
     .iconButton {
         font-size: 1.3em;
         width: 5vw;
@@ -362,12 +375,20 @@ fieldset {
         width: 70%;
     }
 
+    .contentContainer ol li {
+        font-size: 1em;
+        line-height: 1.7em;
+    }
+
     .numberInputContainer {
         width: 70%;
+        font-size: 1.2em;
     }  
 
     .typeInput {
         width: 20vw;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
     }
 
     .createRouteForm {
@@ -401,22 +422,22 @@ fieldset {
 
     .mapButtons {
         width: 30vw;
-    }
-
-    .mapButtons {
-        width: 30vw;
+        height: 3vh;
     }
 }
 
 @media only screen and (min-width: 1200px) {
+
     header, footer {
         left: 50%;
         margin-left: -600px;
     }
+
     .locateButton, .restartButton {
         width: 4.8em;
         height: 3.5em;
     }
+
     .topButtonMenu {
         width: 50%;
     }
