@@ -136,7 +136,6 @@ footer p {
     width: 100vw;
     padding: 1vw 3vw;
     z-index: 0;
-    min-height: 40vh;
 }
 
 .contentContainer ol {
