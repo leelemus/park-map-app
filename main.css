@@ -237,6 +237,7 @@ fieldset {
 .typeInput input {
     display: flex;
     flex-direction: row;
+    position: absolute;
     width: 5px;
     zoom: 0.01;
   }
