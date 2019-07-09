@@ -111,7 +111,7 @@ footer p {
     padding: 3vw 3vw 5vh 3vw;
     z-index: 0;
     overflow-y: scroll;
-    min-height: 49vh;
+    min-height: 40vh;
 }
 
 .contentContainer ol {
