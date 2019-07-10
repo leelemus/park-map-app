@@ -17,9 +17,9 @@ The app takes this user input and returns the following:
         - Each individual direction can be clicked on to display it's position on the map
 
 
-There are also two buttons, a locate and restart button:
+There are also two buttons, a locate and reset button:
 
     - Locate - initiates a geolocation call and displays the device's current location
-    - Restart - this button appears after you submit your initial request.  Clicking it restarts the app.
+    - Reset - this button appears after you submit your initial request.  Clicking it restarts the app.
 
 
