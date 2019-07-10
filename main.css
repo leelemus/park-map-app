@@ -75,42 +75,7 @@ footer p {
     color:#fdfdfd;
 }
 
-.searchResultSummary {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1vh auto 2vh;
-    width: 100%;
-}
-
-.searchResultSummary h2{
-    font-size: 1.5em;
-    margin: 1vh auto;
-}
-
-.searchResultTotals {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 2vh auto;
-    width: 100%;
-}
-
-.searchResultTotals p {
-    margin: 0 2vw;
-    font-size:.7em;
-}
-
-.totalResult {
-    font-size: 2.5em;
-    color: #00A269;
-    font-weight: bold;
-}
-
-.directionsList, .startForm {
-    width: 100vw;
-}
+/* Map and Content Styles */
 
 .mapContainer {
     position: fixed;
@@ -196,6 +161,8 @@ footer p {
     background-color: #2d2d2d;
     color: #FF8E00;
 }
+
+/* Form and CTA Styling */
 
 .createRouteForm, .startOverForm {
     display: flex;
@@ -321,7 +288,7 @@ fieldset {
     margin: 1vh auto;
 }
 
-#directionsList  {
+#routeButtonMenu {
     width: 100%;
     min-height: 100%;
     margin: 0 auto;
@@ -330,7 +297,48 @@ fieldset {
     align-items: center;
 }
 
-#routeButtonMenu {
+
+
+/* Search Results and Direction Styles */
+
+.searchResultSummary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh auto 2vh;
+    width: 100%;
+}
+
+.searchResultSummary h2{
+    font-size: 1.5em;
+    margin: 1vh auto;
+}
+
+.searchResultTotals {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2vh auto;
+    width: 100%;
+}
+
+.searchResultTotals p {
+    margin: 0 2vw;
+    font-size:.7em;
+}
+
+.totalResult {
+    font-size: 2.5em;
+    color: #00A269;
+    font-weight: bold;
+}
+
+.directionsList, .startForm {
+    width: 100vw;
+}
+
+#directionsList  {
     width: 100%;
     min-height: 100%;
     margin: 0 auto;
@@ -449,7 +457,7 @@ fieldset {
     .typeInput label {
         font-size: 1.2em;
     }
-    
+
     .mapButtons {
         width: 22vw;
         max-width: 400px;

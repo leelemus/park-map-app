@@ -7,9 +7,10 @@ var infoWindow;
 function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 43.074409, lng: -89.384085},
+        center: {lat: 43.074409, lng: -89.384085}, // Madison, WI
         zoom: 15,
-        gestureHandling: 'greedy',
+        gestureHandling: 'greedy', // One finger operation
+        //Styling Map - colors and removal of superflous information like retail stores
         styles: [
             {"featureType":"administrative","elementType":"all","stylers":[{"visibility":"off"}]},
             {"featureType": "administrative.neighborhood","elementType": "all","stylers": [{"visibility": "on"},{"hue": "#0080ff"},{"weight": "0.63"}]},
@@ -41,14 +42,16 @@ function initMap() {
     let bikeLayer = new google.maps.BicyclingLayer();
     bikeLayer.setMap(map);
 
-    // Try HTML5 geolocation.
+    // Initial GeoLocation call - saved locally to global use
     if (navigator.geolocation) {
 
         navigator.geolocation.getCurrentPosition(
             function(position) {
-                let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
                 localStorage.setItem('globalLat', position.coords.latitude);
                 localStorage.setItem('globalLng', position.coords.longitude);
+
+                let pos = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
                 infoWindow.setPosition(pos);
                 infoWindow.setContent('Current Location');
                 infoWindow.open(map);
@@ -73,7 +76,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 
-// Callback takes results and generates directions with waypoints by initiating services and launching the calculateAndDisplayRoute function
+// Callback takes the results from the API request and makes sure it is successful. Creates directions service and display instance. Sends both plus results to calculateAndDisplayRoute to generate route and directions. 
 
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -92,6 +95,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
     const maxFound = checkboxArray.length;
     let pos = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
 
+        //Creates array of waypoints up to maxResult amount to send to directions request object
         for (let i = 0; i < maxResult && i < maxFound; i++) {
             if (checkboxArray[i].place_id) {
               waypts.push({
@@ -119,11 +123,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                     let totalTime;
                     let parkTotal = route.legs.length - 1;
 
-                    let detailedDirections = directionsDisplay.directions.routes[0].legs;
-
-                    console.log(detailedDirections);
-
-                // Search results summary information.
+                // Search results summary
                     for (let i = 0; i < route.legs.length; i++) {
                         totalDistance += route.legs[i].distance.value;
                         totalSeconds += route.legs[i].duration.value;
@@ -131,7 +131,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
                     totalDistance *= 0.000621;
                     totalDistance  = totalDistance.toFixed(2);
 
-                    totalTime = timeCreator(totalSeconds);
+                    totalTime = timeCreator(totalSeconds); //Seconds to HH:MM:SS function
 
 
             
@@ -195,18 +195,18 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, results)
 
 }
 
-// This listener function starts the search function, which kicks off the rest of the process.
+// This listener function creates an initial request to the API and sends the results to Callback function.
 function generateRoute() {
     $('.js-createRouteForm').submit(event => {
         event.preventDefault(); 
 
-        const distanceAmount = $('#js-numberOfDistance').val() * 1609.344;
+        const distanceAmount = $('#js-numberOfDistance').val() * 1609.344; // Miles to meters
 
         infoWindow.close();
 
         let searchLocation = new google.maps.LatLng(Number(localStorage.getItem('globalLat')), Number(localStorage.getItem('globalLng')));
     
-        let request = {
+        let request = { 
             location: searchLocation,
             radius: distanceAmount,
             keyword: 'park playground',
@@ -214,7 +214,8 @@ function generateRoute() {
         };
     
         let service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, callback);
+            service.nearbySearch(request, callback); 
+            // Send object request, then send result to callback
     });
 }
 

@@ -1,14 +1,25 @@
 This app takes four data pieces from a user to construct a bike or run map loop with directions.
 
-1 - user's device locatin
+1 - user's device location
 2 - Maximum number of parks to visit
 3 - Radius distance for search
 4 - Type of directions wanted (Bike or Run)
 
-The app takes this user input and returns a map with a highlighted route around parks that starts and ends at the location that the user initially intiated the search.
 
-Along with the map with directions and markers for each park, the user also gets turn by turn directions, which the user can click on each individual direction to see where it is on the map (you click on a street to turn left - a window pane opens on where in the map you would make the left).
+The app takes this user input and returns the following:
 
-Last but not least - the app also has a "locate" button. this button is to locate and reset the map view at the device's current location.
+    - updated map with a highlighted route around parks that starts and ends at the location that the user initially intiated the search
+    - Summary of results
+        - Total Park Stops
+        - Total Mileage
+        - Estimated Time to finish loop
+    - Turn by turn directions
+        - Each individual direction can be clicked on to display it's position on the map
+
+
+There are also two buttons, a locate and restart button:
+
+    - Locate - initiates a geolocation call and displays the device's current location
+    - Restart - this button appears after you submit your initial request.  Clicking it restarts the app.
 
 
