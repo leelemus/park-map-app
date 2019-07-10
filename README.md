@@ -1,3 +1,5 @@
+Park Map App
+
 This app takes four data pieces from a user to construct a bike or run map loop with directions.
 
 1 - user's device location
