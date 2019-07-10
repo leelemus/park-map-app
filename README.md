@@ -45,7 +45,7 @@
     </li>
 </ul>
 
-<img src="./images/turn-by-turn.jpg" alt="turn by turn directions"/>
+<img src="./images/turn-by-turn-click.jpg" alt="turn by turn directions"/>
 
 <p>There are also two buttons, a locate and reset button:</p>
 
