@@ -1,29 +1,65 @@
 <h1>Park Map App</h1>
 
-Live link: https://leelemus.github.io/playground-map-app/
+<p>Live demo: https://leelemus.github.io/playground-map-app/</p>
 
-This app takes four data pieces from a user to construct a bike or run map loop with directions.
+<img src="./images/main-screen.jpg" alt="main screen"/>
+<img src="./images/result-summary.jpg" alt="result summary screen"/>
 
-1 - user's device location
-2 - Maximum number of parks to visit
-3 - Radius distance for search
-4 - Type of directions wanted (Bike or Run)
+<h2>High Level Description</h2>
 
+<p>This app will create a bike or walk/run loop that will take you up to 23 Parks that are up to 30 miles away from your location. Just follow 4 easy steps!</p>
+<ol>
+    <li>Enter the max amount of parks you want to visit</li>
+    <li>Enter how far to search from your loaction</li>
+    <li>Choose the type of directions (Bike or Run/Walk)</li>
+    <li>Click "CREATE ROUTE"</li>
+</ol>
 
-The app takes this user input and returns the following:
+<img src="./images/entering-data.jpg" alt="entering info"/>
 
-    - updated map with a highlighted route around parks that starts and ends at the location that the user initially intiated the search
-    - Summary of results
-        - Total Park Stops
-        - Total Mileage
-        - Estimated Time to finish loop
-    - Turn by turn directions
-        - Each individual direction can be clicked on to display it's position on the map
+<h2>More Technical Description</h2>
 
+<p>The app requires 4 piece of data to create a loop:</p>
+<ol>
+    <li>user's device location</li>
+    <li>Maximum number of parks to visit</li>
+    <li>Radius distance for search</li>
+    <li>Type of directions wanted (Bike or Run)</li>
+</ol>
 
-There are also two buttons, a locate and reset button:
+<p>The app takes this user input and returns the following:</p>
 
-    - Locate - initiates a geolocation call and displays the device's current location
-    - Reset - this button appears after you submit your initial request.  Clicking it restarts the app.
+<ul>
+    <li>updated map with a highlighted route around parks that starts and ends at the location that the user initially intiated the search
+    <li>Summary of results
+        <ul>
+            <li>Total Park Stops</li>
+            <li>Total Mileage</li>
+            <li>Estimated Time to finish loop</li>
+        </ul>
+    </li>
+    <li>Turn by turn directions
+        <ul>
+            <li>Each individual direction can be clicked on to display it's position on the map</li>
+        </ul>
+    </li>
+</ul>
 
+<img src="./images/turn-by-turn.jpg" alt="turn by turn directions"/>
+
+<p>There are also two buttons, a locate and reset button:</p>
+
+<ul>
+    <li>Locate - initiates a geolocation call and displays the device's current location.</li>
+    <li>Reset - this button appears after you submit your initial request.  Clicking it restarts the app.</li>
+</ul>
+
+<h2>Technologies and Tools Used</h2>
+<ul>
+    <li>HTML 5</li>
+    <li>CSS3</li>
+    <li>JavaScript</li>
+    <li>JQuery</li>
+    <li>Google Maps API</li>
+</ul>
 
