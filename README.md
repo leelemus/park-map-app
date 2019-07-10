@@ -1,6 +1,6 @@
 <h1>Park Map App</h1>
 
-<p>Live demo: https://leelemus.github.io/playground-map-app/</p>
+<p>Live demo: https://leelemus.github.io/park-map-app/</p>
 
 <img src="./images/main-screen.jpg" alt="main screen"/>
 <img src="./images/result-summary.jpg" alt="result summary screen"/>
